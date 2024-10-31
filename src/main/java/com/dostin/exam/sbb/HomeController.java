@@ -1,6 +1,8 @@
 package com.dostin.exam.sbb;
 
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +23,14 @@ public class HomeController {
     @ResponseBody
     public int showPlus(@RequestParam(defaultValue = "3") int a, @RequestParam(defaultValue = "1") int b) {
         return a + b;
+    }
+
+    @GetMapping("/plus2")
+    @ResponseBody
+    public int showPlus2(HttpServletRequest req, HttpServletResponse resp) {
+        int a = Integer.parseInt(req.getParameter("a"));
+        int b = Integer.parseInt(req.getParameter("b"));
+        return a + b;
+
     }
 }
