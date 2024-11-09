@@ -136,11 +136,14 @@ public class HomeController {
     @GetMapping("/addPerson")
     @ResponseBody
     public Person addPerson(Person p) {
-
         return p;
     }
 
-
+    @GetMapping("/addPerson/{id}")
+    @ResponseBody
+    public Person addPerson2(Person p) {
+        return p;
+    }
 }
 
 @AllArgsConstructor
